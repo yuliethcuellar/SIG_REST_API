@@ -3,16 +3,24 @@ var router = express.Router();
 
 var pg = require('pg');
 
-pg.defaults.ssl = process.env.DATABASE_URL != undefined;
-var conString = process.env.DATABASE_URL || "postgres://postgres:root@localhost/proyecto_sig"; // Cadena de conexión a la base de datos
+pg.defaults.ssl = true;
+var conString = process.env.DATABASE_URL || "postgres://xdruizytkyrmpx:mW73aX0ai-3yM_qNG0ZrP3UirS@ec2-54-235-125-38.compute-1.amazonaws.com:5432/de499kjl0lbias"; // Cadena de conexión a la base de datos
 
 // Set up your database query to display GeoJSON
-var coffee_query = "SELECT * FROM public.via-norte ORDER BY gid ASC";
+var coffee_query = 'SELECT row_to_json(fc) FROM (	SELECT array_to_json(array_agg(f)) As features FROM (	SELECT ST_AsGeoJSON(lg.geom)::json As geometry,	row_to_json((gid, barrios_he)) As properties FROM public."puntos-accidentes" As lg) As f) As fc';
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
   res.render('index', {
-    title: 'Postgis & NodeJS'}
+    title: 'puntos de accidentalidad'
+  }
+  );
+});
+
+router.get('/puntos', function (req, res, next) {
+  res.render('puntos', {
+    title: 'puntos de accidentalidad'
+  }
   );
 });
 
@@ -25,7 +33,7 @@ router.get('/data', function (req, res) {
     result.addRow(row);
   });
   query.on("end", function (result) {
-    res.json(result.rows);
+    res.json(result.rows[0].row_to_json);
     res.end();
   });
 });
