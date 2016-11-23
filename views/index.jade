@@ -1,8 +1,202 @@
 extends layout
 
 block content
-  h1= title
-  p Bienvenido a #{title}
-  a(href='https://sigpg.herokuapp.com/data') Ver datos geograficos (JSON)
-  br
-  a(href='https://sigpg.herokuapp.com/tabla') Ver tabla de datos
+    // banner
+    .banner
+      // header
+      // header-bottom
+      .header
+        .header-top
+          .container
+            .logo
+              h1
+                a(href='/') Puntos De Accidentalidad
+            .reserv
+              a(href='/') Iniciar
+            .clearfix
+        .container
+          .header-bottom
+            nav.navbar.navbar-default(role='navigation')
+              .navbar-header
+                button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+                  span.sr-only Toggle navigation
+                  span.icon-bar
+                  span.icon-bar
+                  span.icon-bar
+              // /.navbar-header
+              #bs-example-navbar-collapse-1.collapse.navbar-collapse
+                ul.nav.navbar-nav
+                  li.active
+                    a(href='/') Inicio
+                  li
+                    a(href='contact.html') Contactenos
+              // /.navbar-collapse
+      // /header-bottom
+      // header
+      // banner-info
+      .container
+        section.slider
+          .flexslider
+            ul.slides
+              li
+                .banner-info
+                  h2 Sistemas de Informacion Geografica
+              li
+                .banner-info
+                  h2 Sabe cuales son los puntos más criticos de la ciudad?
+              li
+                .banner-info
+                  h2 Información vial actualizada
+        // FlexSlider
+        script(defer='', src='js/jquery.flexslider.js')
+        script(type='text/javascript').
+          $(function(){
+          });
+          $(window).load(function(){
+          $('.flexslider').flexslider({
+          animation: "slide",
+          start: function(slider){
+          $('body').removeClass('loading');
+          }
+          });
+          });
+        // FlexSlider
+        // banner-info
+    // banner
+    // draw
+    .draw
+      .container
+        .col-md-7.draw-left
+          .col-md1
+            a.b-link-stripe.b-animate-go.thickbox(href='#')
+              img.img-responsive(src='/images/2.jpg', alt=' ')
+              .b-wrapper
+                h3.b-animate.b-from-top.top-in1.b-delay03
+          .dr-btm
+            h3 Passage of Lorem Ipsum, you need to be sure
+            p
+              | By injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidde
+            a.hvr-shutter-in-horizontal(href='#') Learn More
+        .col-md-5.draw-right
+          .dr-top
+            h3 Default model text,
+            p
+              | There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form
+            .soci
+              a(href='#')
+                i.f-1  
+              a(href='#')
+                i.t-1  
+              a(href='#')
+                i.g-1  
+          .col-md1
+            a.b-link-stripe.b-animate-go.thickbox(href='#')
+              img.img-responsive(src='/images/5.jpg', alt=' ')
+              .b-wrapper
+                h3.b-animate.b-from-top.top-in1.b-delay03
+        .clearfix
+    // draw
+    // open
+    .open
+      .container
+        .col-md-6.open-left
+          .col-md1
+            a.b-link-stripe.b-animate-go.thickbox(href='#')
+              img.img-responsive(src='/images/16.jpg', alt='')
+              .b-wrapper
+                h3.b-animate.b-from-top.top-in1.b-delay03
+        .col-md-3.open-right
+          .col-md1
+            a.b-link-stripe.b-animate-go.thickbox(href='#')
+              img.img-responsive(src='/images/14.jpg', alt='')
+              .b-wrapper
+                h3.b-animate.b-from-top.top-in1.b-delay03
+        .col-md-3.open-mid
+          h5 looking 
+          p
+            | It is a long established fact that a reader will be page when looking at its layout.
+          a.hvr-shutter-in-horizontal(href='#') More
+        .clearfix
+    // open
+    // mid-bann
+    .mid-bann
+      .container
+        .col-md-6.mid-left
+          img.img-responsive(src='/images/20.jpg', alt=' ')
+        .col-md-6.mid-info
+          h3 Passage of Lorem Ipsum, you need to be sure
+          p
+            | By injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidde
+          p
+            | which don't look even slightly believable.By injected humour, or randomised words  If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidde
+    // mid-bann
+    // show
+    .show
+      .container
+        .col-md-4.show-left
+          .col-md1
+            a.b-link-stripe.b-animate-go.thickbox(href='#')
+              img.img-responsive(src='/images/3.jpg', alt=' ')
+              .b-wrapper
+                h3.b-animate.b-from-top.top-in1.b-delay03
+          h4 Majority have
+          p
+            | Many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form
+        .col-md-4.show-left
+          .col-md1
+            a.b-link-stripe.b-animate-go.thickbox(href='#')
+              img.img-responsive(src='/images/9.jpg', alt=' ')
+              .b-wrapper
+                h3.b-animate.b-from-top.top-in1.b-delay03
+          h4 Ipsum available
+          p
+            | Many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form
+        .col-md-4.show-left
+          .col-md1
+            a.b-link-stripe.b-animate-go.thickbox(href='#')
+              img.img-responsive(src='/images/13.jpg', alt=' ')
+              .b-wrapper
+                h3.b-animate.b-from-top.top-in1.b-delay03
+          h4 Many variations
+          p
+            | Many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form
+        .clearfix
+    // show
+    // footer
+    .footer
+      .container
+        .footer-top
+          .col-md-3.footer-left
+            h4 Direccion
+            address
+              | Calle 16 B/ Rincon de la Estrella
+              br
+              | 							Florencia-Caquetá
+              br
+              abbr(title='Phone') P :
+              |  (313) 293-4375
+          .col-md-6.footer-middle
+            h4 Contactenos
+            form
+              .ft-lt
+                input(type='text', value='Primer Nombre', placeholder='', onfocus="this.value='';", onblur="if (this.value == '') {this.value = 'First Name';}")
+                input(type='text', value='Segundo Nombre', placeholder='', onfocus="this.value='';", onblur="if (this.value == '') {this.value = 'Last Name';}")
+                input(type='text', value='Correo Electronico', placeholder='', onfocus="this.value='';", onblur="if (this.value == '') {this.value = 'Email Address';}")
+              .ft-rgt
+                textarea(placeholder='', onfocus="this.value='';", onblur="if (this.value == '') {this.value = 'Message';}") Mensaje
+                input(type='submit', value='Enviar')
+          .col-md-3.footer-left
+            h4 Siguenos en:
+            .soci
+              a(href='#')
+                i.f-1  
+              a(href='#')
+                i.t-1  
+              a(href='#')
+                i.g-1  
+          .clearfix
+        .footer-text
+          p
+            | © 2016 Moduls. All Rights Reserved | Design by  
+            a(href='http://w3layouts.com/', target='_blank') W3layouts
+    // footer
