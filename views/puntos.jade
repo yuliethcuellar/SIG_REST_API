@@ -55,7 +55,7 @@ html
                     for ( var i=0; i < markers.length; ++i ) 
                     {
                         L.marker([markers[i].geometry.coordinates[1], markers[i].geometry.coordinates[0]])
-                            .bindPopup( '<a href="' + markers[i].properties.f1 + '" target="_blank">' + markers[i].properties.f2 + '</a>' )
+                            .bindPopup( '<a href="' + markers[i].clase_acci + '" target="_blank">' + markers[i].properties.f2 + '</a>' )
                             .addTo( map );
                     }
                 }
